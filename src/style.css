@@ -1,61 +1,34 @@
 body{
     margin: 0;
 }
+#root{
+    width: 100%;
+}
 .main_container{
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.launches{
     display: flex;
     flex-wrap: wrap;
-    width: 70%;
-    height: 100vh;
 }
-.userSection{
-    margin: 10px;
-    background: grey;
+
+.launch{
     display: flex;
-    padding: 20px;
-    box-sizing: border-box;
-    flex:1 1 calc(30% - 40px);
-    height: 50%;
-    overflow: auto;
-    align-items: center;
-    gap: 5px;
-}
-.postsSection{
-    display: flex;
-    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    margin: 10px;
-    flex: 1 1 70%;
-    height: 50%;
-    overflow: auto;
-}
-.commentsSection{
-    display: flex;
+    text-align: center;
     align-items: center;
-    flex-direction: column;
-    flex: 1 1 100%;
-    height: 40%;
-    overflow: auto;
-}
-.comment{
-    width: 500px;
-    height: 400px;
-    background: #cacae8;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-}
-.userCard{
-    width: 200px;
-    padding: 10px;
-    background: #cecece;
-    border-radius: 4px;
-}
-.post{
     background: #e7e7e7;
     margin: 10px;
     padding: 50px;
-    border-radius: 30px;
-    width: 500px;
+    border-radius: 20px;
+    width: 300px;
     height: 210px;
+}
+.ship_img{
+    display: inline-block;
+    width: 200px;
 }

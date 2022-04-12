@@ -1,4 +1,4 @@
-import '../../modules/car.module.css'
+import './Car.module.css'
 
 const Car = ({car})=>{
     const {id,model,price,year} = car;

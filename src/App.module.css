@@ -1,0 +1,21 @@
+.main_container{
+    font-family: "Arial", serif;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px;
+    display:flex;
+    flex-wrap: wrap;
+}
+.user_list{
+    background: #cacae8;
+    padding: 15px;
+    border-radius: 2px;
+    width: 600px;
+}
+.user_info{
+    width: 400px;
+}
+.user_posts{
+    width: 1200px;
+}

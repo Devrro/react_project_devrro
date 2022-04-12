@@ -1,0 +1,8 @@
+.post{
+ width: 500px;
+ margin: 30px;
+ padding: 10px;
+ border-radius: 3px;
+ background: #fafafa;
+ box-shadow: 1px 1px 1px 1px rgb(208, 182, 182);
+}

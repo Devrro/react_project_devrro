@@ -1,0 +1,9 @@
+.cars{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 60%;
+    height: 300px;
+    gap: 10px;
+}

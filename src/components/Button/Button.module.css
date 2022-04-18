@@ -1,0 +1,17 @@
+.button_simple{
+    background: #a86565;
+    border: grey;
+    border-radius: 5px;
+    color: black;
+    font-family: Arial sans-serif;
+    width: 100px;
+    height: 50px;
+    user-select: none;
+    cursor: pointer;
+}
+.button_simple:hover{
+    background: #b24848;
+}
+.button_simple:active{
+    background: green;
+}

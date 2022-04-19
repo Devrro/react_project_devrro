@@ -4,15 +4,20 @@ import postService from "../../services/post.service";
 import PostDetail from "../../components/PostDetail/PostDetail";
 
 const SinglePostPage = () => {
+    const {state} = useLocation();
+    console.log(useLocation());
+    const [post, setPost] = useState(state);
     const {id} = useParams();
-    const [post, setPost] = useState(null);
-    const postState = useLocation().state;
-    // useEffect(() => {
-    //     postService.getById(id).then(({data}) => setPost(data))
-    // }, [id])
+    useEffect(() => {
+        if (!state) {
+            postService.getById(id).then(({data}) => setPost(data))
+        } else {
+            setPost(state)
+        }
+    }, [id])
     return (
         <div>
-            {post && <PostDetail post={post} postState={postState}/>}
+            {post && <PostDetail post={post}/>}
         </div>
     );
 };

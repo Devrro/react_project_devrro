@@ -3,16 +3,16 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import Button from "../Button/Button";
 
-const Post = ({post}) => {
-    const{id,title}=post
+const User = ({user}) => {
+    const{id,name, username}=user
 
     return (
         <div>
-            {id} -- {title}
-            <Button to={`${id}`} state={post}>Get Details</Button>
+            {id} -- {name} -- {username}
+            <Button to={`${id}`} state={user}>Get Details</Button>
 
         </div>
     );
 };
 
-export default Post;
+export default User;

@@ -7,9 +7,6 @@ const MainLayout = () => {
         <div>
             <div className={style.header}>
                 <Link to={'/home'}>Home</Link>
-                <Link to={'/posts'}>Posts</Link>
-                <Link to={'/users'}>Users</Link>
-                <Link to={'/about'}>About</Link>
             </div>
             <Outlet/>
         </div>

@@ -1,9 +1,0 @@
-.btn_custom{
-    background: #fd9b9b;
-    border-radius: 20px;
-    border: 2px solid #ce4c4c;
-}
-
-.btn_custom:active{
-    border: 4px solid #ce4c4c;
-}

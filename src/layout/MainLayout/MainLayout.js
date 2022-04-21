@@ -7,8 +7,12 @@ const MainLayout = () => {
     return (
         <div>
             <div className={style.header}>
-                <Button>Kot</Button>
-                <Button>Dogo</Button>
+                <div style={{width:'100px'}}>
+                    <Button onClick={() => {console.log('hello')}}>Kot</Button>
+                </div>
+                <div style={{width:'100px'}}>
+                    <Button onClick={() => {console.log('hello')}}>Doggo</Button>
+                </div>
             </div>
             <Outlet/>
         </div>

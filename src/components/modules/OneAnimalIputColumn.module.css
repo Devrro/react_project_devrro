@@ -1,0 +1,13 @@
+.one_animal_input{
+    width: 400px;
+    background-color: #e87a7a;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.input_decoration{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,4 @@
+.list_cars{
+    display: flex;
+    flex-wrap: wrap;
+}

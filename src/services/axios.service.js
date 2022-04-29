@@ -1,6 +1,6 @@
 import axios from "axios";
 import baseURL from "../constants/urls";
 
-const axiosInstance = axios.create({baseURL})
+const carAxiosInstance = axios.create({baseURL})
 
-export default axiosInstance;
+export default carAxiosInstance;

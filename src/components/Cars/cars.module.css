@@ -1,4 +1,6 @@
 .list_cars{
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
 }

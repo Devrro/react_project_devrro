@@ -6,7 +6,8 @@ const MainLayout = () => {
     return (
         <div>
             <div className={style.header}>
-                <Link to={'/home'}>CAR BASE</Link>
+                <Link to={'/home'}>CAR FORM</Link>
+                <Link to={'/cars'}>CARS BASE</Link>
             </div>
             <Outlet/>
         </div>

@@ -1,10 +1,9 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import carService from "../../services/car.service";
-import {useDispatch} from "react-redux";
 
 const initialState = {
     cars: [],
-    status: [],
+    status: {},
     carForUpdate: null
 };
 
@@ -37,9 +36,13 @@ const deleteById = createAsyncThunk(
 )
 const updateById = createAsyncThunk(
     'carSlice/deleteById',
-    async ({id}) => {
-        const {data} = await carService.updateById(id)
-        return data
+    async ({id,car}, {dispatch,rejectWithValue}) => {
+        try {
+            await carService.updateById(id,car)
+            dispatch(updateCarById({id,car}))
+        } catch (e) {
+            return rejectWithValue({status: e.message})
+        }
     }
 )
 
@@ -48,12 +51,16 @@ const carSlice = createSlice({
     initialState,
     reducers: {
         updateCarById: (state, action) => {
-            const index = state.cars.findIndex(car => car.id === action.payload.id)
-            state.cars[index] = {...state.car[index], car: action.payload.car}
+            const index = state.cars.findIndex(car => car.id === action.payload.id);
+            state.cars[index] = { ...state.cars[index], ...action.payload.car };
+            state.carForUpdate = false;
         },
         deleteCarById:(state, action)=>{
             const index = state.cars.findIndex(car => car.id === action.payload.id)
             state.cars.splice(index,1)
+        },
+        setCarForUpdate:(state, action)=>{
+            state.carForUpdate = action.payload.car
         },
     },
     extraReducers: {
@@ -84,17 +91,19 @@ const carSlice = createSlice({
     }
 });
 
-const {reducer: carReducer, actions: {updateCarById}} = carSlice;
+const {reducer: carReducer, actions: {updateCarById, deleteCarById,setCarForUpdate}} = carSlice;
 
 const carActions = {
+    create,
     getAll,
     deleteById,
-    create,
     updateById,
-    updateCarById
+    setCarForUpdate,
+
+
 }
 
 export {
     carReducer,
-    carActions
+    carActions,
 }

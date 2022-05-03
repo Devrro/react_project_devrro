@@ -1,38 +1,40 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {carActions} from "../../redux/slices";
 
 const CarForm = () => {
-    const {register, handleSubmit, reset} = useForm();
+    const {formErrors, carForUpdate} = useSelector(state=>state.cars)
+    const {register, handleSubmit, reset,setValue} = useForm();
     const dispatch = useDispatch();
+
+    useEffect(()=>{
+        if(carForUpdate){
+            const {year,price,model} = carForUpdate
+            setValue('model', model)
+            setValue('year', year)
+            setValue('price', price)
+        }
+    },[carForUpdate])
     const submit = async (newCar) => {
-        await dispatch(carActions.create({car: newCar}))
+        if (carForUpdate) {
+            await dispatch(carActions.updateById({id: carForUpdate.id, car: newCar}));
+        } else {
+            await dispatch(carActions.create({car: newCar}));
+        }
         reset()
     }
 
     return (
         <form onSubmit={handleSubmit(submit)}>
-            <div>
-                <label>
-                    model:
-                    <input type={"text"} defaultValue={'AUDI'} {...register('model')}/>
-                </label>
-            </div>
-            <div>
-                <label>
-                    price:
-                    <input type={"text"}  defaultValue={14500} {...register('price')}/>
-                </label>
-            </div>
-            <div>
-                <label>
-                    year:
-                    <input type={"text"}  defaultValue={2019} {...register('year')}/>
-                </label>
-            </div>
-            <button>ADD</button>
-            <button onClick={()=>{}}>UPDATE</button>
+
+            <div><label>model:<input type={"text"} {...register('model')}/></label></div>
+            {/*{formErrors.model&& <span>{formErrors.model[0]}</span>}*/}
+            <div><label>price:<input type={"text"} {...register('price')}/></label></div>
+            {/*{formErrors.price&& <span>{formErrors.price[0]}</span>}*/}
+            <div><label>year:<input type={"text"} {...register('year')}/></label></div>
+            {/*{formErrors.year&& <span>{formErrors.year[0]}</span>}*/}
+            <button>SAVE</button>
         </form>
     );
 };

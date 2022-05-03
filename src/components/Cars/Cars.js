@@ -12,7 +12,7 @@ const Cars = () => {
     }, [])
     return (
         <div className={style.list_cars}>
-            {status&&<h1>{status}</h1>}
+            {status&&<h1>{status.message}</h1>}
             {cars && cars.map(car => <Car key={car.id} car={car}/>)}
         </div>
     );
